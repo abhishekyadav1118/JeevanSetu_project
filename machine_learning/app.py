@@ -1,9 +1,14 @@
+import os
+from pathlib import Path
+
 import streamlit as st
 import pickle
 import numpy as np
 
 # Model load karo
-with open('models/model.pkl', 'rb') as file:
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR / 'models' / 'model.pkl'
+with open(MODEL_PATH, 'rb') as file:
     model = pickle.load(file)
 
 st.title("JeevanSetu - Disease Prediction System")
